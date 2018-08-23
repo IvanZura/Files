@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1535066029 source:c:\users\z\documents\utn-segundo-cuatrimestre\laboratorio2\proyectos\clase3\main.cpp
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	"CSYSTEM/csystem.h"
+	"menu.h"
+	"funciones.h"
+
+1399506914 c:\users\z\documents\utn-segundo-cuatrimestre\laboratorio2\proyectos\clase3\csystem\csystem.h
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<ctime>
+	<windows.h>
+	<unistd.h>
+
+1535063174 c:\users\z\documents\utn-segundo-cuatrimestre\laboratorio2\proyectos\clase3\menu.h
+
+1535066418 c:\users\z\documents\utn-segundo-cuatrimestre\laboratorio2\proyectos\clase3\funciones.h
+
