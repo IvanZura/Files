@@ -115,11 +115,27 @@ int main()
             }break;
             case 3:
             {
-                short int pos = obtenerID();
-                cout << pos << endl;
+                sys::cls();
+                short int id;
+                cout << "Ingrese ID a buscar: ";
+                cin >> id;
+                cin.ignore();
+                sys::cls();
+                buscarProducto(id);
                 sys::pause();
             }break;
             case 4:
+            {
+                sys::cls();
+                short int id;
+                cout << "Ingrese ID para su baja: ";
+                cin >> id;
+                cin.ignore();
+                sys::cls();
+                bajaProducto(id);
+                sys::pause();
+            }break;
+            case 5:
             {
                 sys::cls();
                 char salida[1];

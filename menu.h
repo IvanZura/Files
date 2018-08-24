@@ -14,7 +14,9 @@ void menu()
     cout << "#                          #" << endl;
     cout << "# 3 - Buscar productos     #" << endl;
     cout << "#                          #" << endl;
-    cout << "# 4 - Salir                #" << endl;
+    cout << "# 4 - Baja de productos    #" << endl;
+    cout << "#                          #" << endl;
+    cout << "# 5 - Salir                #" << endl;
     cout << "#                          #" << endl;
     cout << "############################" << endl;
 }
@@ -49,6 +51,37 @@ void cargoProducto()
     cout << "# Fue cargado con exito !  #" << endl;
     cout << "#                          #" << endl;
     cout << "############################" << endl;
+}
+
+void productoEliminado()
+{
+    cout << "##############################" << endl;
+    cout << "#            INFO            #" << endl;
+    cout << "#                            #" << endl;
+    cout << "# El producto esta eliminado #" << endl;
+    cout << "#                            #" << endl;
+    cout << "##############################" << endl;
+}
+
+void productoFueEliminado()
+{
+    cout << "##############################" << endl;
+    cout << "#            INFO            #" << endl;
+    cout << "#                            #" << endl;
+    cout << "# El producto fue eliminado  #" << endl;
+    cout << "# correctamente.             #" << endl;
+    cout << "#                            #" << endl;
+    cout << "##############################" << endl;
+}
+
+void productoNoExiste()
+{
+    cout << "##############################" << endl;
+    cout << "#            INFO            #" << endl;
+    cout << "#                            #" << endl;
+    cout << "#   El producto no existe    #" << endl;
+    cout << "#                            #" << endl;
+    cout << "##############################" << endl;
 }
 
 #endif // MENU_H_INCLUDED

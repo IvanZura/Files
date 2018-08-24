@@ -26,8 +26,10 @@ int obtenerID()
     }
     else
     {
+        fclose(archivo);
         return 1;
     }
+
 }
 
 void mostrarProducto(tProducto producto)
@@ -71,6 +73,7 @@ void leerProductos()
     }
     else
     {
+        fclose(archivo);
         sinProductos();
         sys::pause();
     }
@@ -128,7 +131,7 @@ void cargarProducto(tProducto *producto,int id)
 }
 
 
-void buscarProducto(int id) // en construccion
+void buscarProducto(int id)
 {
     tProducto producto;
     FILE *archivo;
@@ -136,19 +139,60 @@ void buscarProducto(int id) // en construccion
     if(archivo!=NULL)
     {
         fseek(archivo, sizeof(tProducto) * (id - 1), SEEK_SET);
-        //cout << "ID: " <<
+        fread(&producto,sizeof(tProducto),1,archivo);
+
+        if(producto.id == id)
+        {
+            if(producto.eliminado == true)
+            {
+                fclose(archivo);
+                productoEliminado();
+            }
+            else if(producto.eliminado == false)
+            {
+                cout << "##############################" << endl;
+                cout << "# ID:     " << producto.id << endl;
+                cout << "# Nombre: " << producto.nombre << endl;
+                cout << "# Precio: " << producto.precio << endl;
+                cout << "# stock:  " << producto.stock << endl;
+                cout << "##############################" << endl;
+                fclose(archivo);
+            }
+        }
+        else
+        {
+            fclose(archivo);
+            productoNoExiste();
+        }
+
+
+    }
+    else
+    {
+        fclose(archivo);
+        sinProductos();
     }
 }
 
-void bajaProducto() //en construccion
+void bajaProducto(int id)
 {
     tProducto producto;
     FILE *archivo;
     archivo = fopen(FILE_PRODUCTOS,"rb+");
     if(archivo!=NULL)
     {
+        fseek(archivo, sizeof(tProducto) * (id - 1), SEEK_SET);
+        fread(&producto,sizeof(tProducto),1,archivo);
 
+        if(producto.id == id)
+        {
+            producto.eliminado = true;
+            fseek(archivo, sizeof(tProducto) * (id - 1), SEEK_SET);
+            fwrite(&producto,sizeof(tProducto),1,archivo);
+            productoFueEliminado();
+        }
     }
+    fclose(archivo);
 }
 
 

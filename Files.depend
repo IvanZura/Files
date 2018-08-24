@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1535079780 source:c:\users\z\documents\utn-segundo-cuatrimestre\laboratorio2\proyectos\clase3\main.cpp
+1535118264 source:c:\users\z\documents\utn-segundo-cuatrimestre\laboratorio2\proyectos\clase3\main.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -15,7 +15,7 @@
 	<windows.h>
 	<unistd.h>
 
-1535077354 c:\users\z\documents\utn-segundo-cuatrimestre\laboratorio2\proyectos\clase3\menu.h
+1535118946 c:\users\z\documents\utn-segundo-cuatrimestre\laboratorio2\proyectos\clase3\menu.h
 
-1535080399 c:\users\z\documents\utn-segundo-cuatrimestre\laboratorio2\proyectos\clase3\funciones.h
+1535119106 c:\users\z\documents\utn-segundo-cuatrimestre\laboratorio2\proyectos\clase3\funciones.h
 
