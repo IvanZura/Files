@@ -46,10 +46,11 @@ void leerProductos()
             mostrarProducto(producto);
         }
         fclose(archivo);
+        sys::pause();
     }
     else
     {
-        cout << "No hay productos papu";
+        sinProductos();
         sys::pause();
     }
 }
@@ -97,6 +98,9 @@ void cargarProducto(tProducto *producto,int id)
         producto->precio = precio;
         producto->stock = stock;
         escribirProducto(*producto);
+        sys::cls();
+        cargoProducto();
+        sys::pause();
         salir = 1;
 
     }

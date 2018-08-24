@@ -92,24 +92,61 @@ int main()
     short int salir = 0;
     short int id = 1;
     tProducto producto;
-    //leerProductos();
-    //cargarProducto(&producto, id);
-    //mostrarProducto(producto);
     while(salir == 0)
     {
-        short int opcion = 0;
+        sys::cls();
+        short int opcion;
         menu();
+        cout << "Ingrese una opcion: ";
         cin >> opcion;
         cin.ignore();
-        if(opcion == 1)
+        switch(opcion)
         {
-            cargarProducto(&producto, id);
-        }
-        else if(opcion == 2)
-        {
-            leerProductos();
-        }
+            case 1:
+            {
+                sys::cls();
+                cargarProducto(&producto, id);
+                continue;
+            }break;
+            case 2:
+            {
+                sys::cls();
+                leerProductos();
+                continue;
+            }break;
+            case 3:
+            {
 
+            }break;
+            case 4:
+            {
+                sys::cls();
+                char salida[1];
+                menuSalir();
+                cout << "Opcion: ";
+                sys::getline(salida, 2);
+                switch(salida[0])
+                {
+                    case 's':
+                    case 'S':
+                    {
+                        salir = 1;
+                        continue;
+                    }break;
+                    case 'n':
+                    case 'N':
+                    {
+                        continue;
+                    }break;
+                    default:
+                    {
+                        cout << "Opcion incorrecta" << endl;
+                        sys::pause();
+                        continue;
+                    }
+                }
+            }
+        }
     }
     //--------------------------------------------------------------------------
     // FIN DE LA FUNCION main() SIN ERRORES.
