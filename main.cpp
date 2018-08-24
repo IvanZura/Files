@@ -90,7 +90,6 @@ using namespace std;
 int main()
 {
     short int salir = 0;
-    short int id = 1;
     tProducto producto;
     while(salir == 0)
     {
@@ -105,7 +104,7 @@ int main()
             case 1:
             {
                 sys::cls();
-                cargarProducto(&producto, id);
+                cargarProducto(&producto, obtenerID());
                 continue;
             }break;
             case 2:
@@ -116,7 +115,9 @@ int main()
             }break;
             case 3:
             {
-
+                short int pos = obtenerID();
+                cout << pos << endl;
+                sys::pause();
             }break;
             case 4:
             {

@@ -12,6 +12,24 @@ struct tProducto
     int stock;
 };
 
+int obtenerID()
+{
+    tProducto producto;
+    FILE *archivo;
+    archivo = fopen(FILE_PRODUCTOS,"rb+");
+    if(archivo!=NULL)
+    {
+        fseek(archivo, 0, SEEK_END);
+        short int pos = ftell(archivo)/sizeof(tProducto) + 1;
+        fclose(archivo);
+        return pos;
+    }
+    else
+    {
+        return 1;
+    }
+}
+
 void mostrarProducto(tProducto producto)
 {
     cout << "############################" << endl;
@@ -43,7 +61,10 @@ void leerProductos()
     {
         while(fread(&producto,sizeof(tProducto),1,archivo))
         {
-            mostrarProducto(producto);
+            if(producto.eliminado != true)
+            {
+                mostrarProducto(producto);
+            }
         }
         fclose(archivo);
         sys::pause();
@@ -107,21 +128,28 @@ void cargarProducto(tProducto *producto,int id)
 }
 
 
-void buscarProducto(tProducto *producto, int id)
+void buscarProducto(int id) // en construccion
 {
+    tProducto producto;
     FILE *archivo;
-    archivo = fopen(FILE_PRODUCTOS, "rb");
+    archivo = fopen(FILE_PRODUCTOS,"rb+");
     if(archivo!=NULL)
     {
-        while(fread(&producto,sizeof(tProducto),1,archivo))
-        {
-            mostrarProducto(*producto);
-        }
-        fclose(archivo);
+        fseek(archivo, sizeof(tProducto) * (id - 1), SEEK_SET);
+        //cout << "ID: " <<
     }
 }
 
+void bajaProducto() //en construccion
+{
+    tProducto producto;
+    FILE *archivo;
+    archivo = fopen(FILE_PRODUCTOS,"rb+");
+    if(archivo!=NULL)
+    {
 
+    }
+}
 
 
 #endif // FUNCIONES_H_INCLUDED
