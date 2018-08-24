@@ -85,24 +85,29 @@ using namespace std;
 //==============================================================================
 // FUNCION PRINCIPAL - PUNTO DE INICIO DEL PROYECTO
 //------------------------------------------------------------------------------
+
+//TAREA : HACER LA BAJA LOGICA Y MODIFICACION DE CADA UNO. FTEEL FSEEK
 int main()
 {
     short int salir = 0;
     short int id = 1;
     tProducto producto;
-    leerProductos();
+    //leerProductos();
     //cargarProducto(&producto, id);
     //mostrarProducto(producto);
     while(salir == 0)
     {
-        int opcion = 0;
-        sys::cls();
+        short int opcion = 0;
         menu();
         cin >> opcion;
         cin.ignore();
         if(opcion == 1)
         {
-
+            cargarProducto(&producto, id);
+        }
+        else if(opcion == 2)
+        {
+            leerProductos();
         }
 
     }

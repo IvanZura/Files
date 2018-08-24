@@ -14,7 +14,6 @@ struct tProducto
 
 void mostrarProducto(tProducto producto)
 {
-    sys::cls();
     cout << "############################" << endl;
     cout << "# ID:     " << producto.id << endl;
     cout << "# Nombre: " << producto.nombre << endl;
@@ -50,8 +49,8 @@ void leerProductos()
     }
     else
     {
-        sys::cls();
         cout << "No hay productos papu";
+        sys::pause();
     }
 }
 
@@ -97,12 +96,26 @@ void cargarProducto(tProducto *producto,int id)
         strcpy(producto->nombre, nombre);
         producto->precio = precio;
         producto->stock = stock;
-        escribirProducto(producto);
+        escribirProducto(*producto);
         salir = 1;
 
     }
 }
 
+
+void buscarProducto(tProducto *producto, int id)
+{
+    FILE *archivo;
+    archivo = fopen(FILE_PRODUCTOS, "rb");
+    if(archivo!=NULL)
+    {
+        while(fread(&producto,sizeof(tProducto),1,archivo))
+        {
+            mostrarProducto(*producto);
+        }
+        fclose(archivo);
+    }
+}
 
 
 
