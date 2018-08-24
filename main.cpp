@@ -138,6 +138,47 @@ int main()
             case 5:
             {
                 sys::cls();
+                menuModificar();
+                short int opcionMod;
+                cout << "Ingrese opcion: ";
+                cin >> opcionMod;
+                cin.ignore();
+                switch(opcionMod)
+                {
+                    case 1:
+                    {
+                        sys::cls();
+                        modificarProducto(opcionMod);
+                        sys::pause();
+                    }break;
+                    case 2:
+                    {
+                        sys::cls();
+                        modificarProducto(opcionMod);
+                        sys::pause();
+                    }break;
+                    case 3:
+                    {
+                        sys::cls();
+                        modificarProducto(opcionMod);
+                        sys::pause();
+                    }break;
+                    case 4:
+                    {
+                        continue;
+                    }break;
+                    default:
+                    {
+                        sys::cls();
+                        cout << "Opcion incorrecta";
+                        sys::pause();
+                        continue;
+                    }
+                }
+            }break;
+            case 6:
+            {
+                sys::cls();
                 char salida[1];
                 menuSalir();
                 cout << "Opcion: ";

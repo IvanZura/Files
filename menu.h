@@ -16,7 +16,25 @@ void menu()
     cout << "#                          #" << endl;
     cout << "# 4 - Baja de productos    #" << endl;
     cout << "#                          #" << endl;
-    cout << "# 5 - Salir                #" << endl;
+    cout << "# 5 - Cambios a productos  #" << endl;
+    cout << "#                          #" << endl;
+    cout << "# 6 - Salir                #" << endl;
+    cout << "#                          #" << endl;
+    cout << "############################" << endl;
+}
+
+void menuModificar()
+{
+    cout << "############################" << endl;
+    cout << "#        Modificacion      #" << endl;
+    cout << "#                          #" << endl;
+    cout << "# 1 - Modificar nombre     #" << endl;
+    cout << "#                          #" << endl;
+    cout << "# 2 - Modificar precio     #" << endl;
+    cout << "#                          #" << endl;
+    cout << "# 3 - Modificar stock      #" << endl;
+    cout << "#                          #" << endl;
+    cout << "# 4 - Menu principal       #" << endl;
     cout << "#                          #" << endl;
     cout << "############################" << endl;
 }
@@ -53,6 +71,15 @@ void cargoProducto()
     cout << "############################" << endl;
 }
 
+void productoModificado()
+{
+    cout << "############################" << endl;
+    cout << "#          INFO            #" << endl;
+    cout << "#                          #" << endl;
+    cout << "# Fue modificado con exito #" << endl;
+    cout << "#                          #" << endl;
+    cout << "############################" << endl;
+}
 void productoEliminado()
 {
     cout << "##############################" << endl;

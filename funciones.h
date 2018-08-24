@@ -7,7 +7,7 @@ struct tProducto
 {
     int id;
     bool eliminado;
-    int precio;
+    float precio;
     char nombre[30];
     int stock;
 };
@@ -191,6 +191,74 @@ void bajaProducto(int id)
             fwrite(&producto,sizeof(tProducto),1,archivo);
             productoFueEliminado();
         }
+    }
+    fclose(archivo);
+}
+
+void modificarProducto(short int mod)
+{
+    tProducto producto;
+    FILE *archivo;
+    archivo = fopen(FILE_PRODUCTOS,"rb+");
+    if(archivo!=NULL)
+    {
+        short int id = 0;
+        cout << "Ingrese el ID a modificar: ";
+        cin >> id;
+        cin.ignore();
+        fseek(archivo, sizeof(tProducto) * (id - 1), SEEK_SET);
+        fread(&producto,sizeof(tProducto),1,archivo);
+
+        if(producto.id == id)
+        {
+            if(producto.eliminado == true)
+            {
+                productoEliminado();
+            }
+            else
+            {
+                if(mod == 1)
+                {
+                    char nombre[30];
+                    cout << "Ingrese el nuevo NOMBRE: ";
+                    sys::getline(nombre, 30);
+                    strcpy(producto.nombre, nombre);
+                    fseek(archivo, sizeof(tProducto) * (id - 1), SEEK_SET);
+                    fwrite(&producto,sizeof(tProducto),1,archivo);
+                    productoModificado();
+                }
+                else if(mod == 2)
+                {
+                    float precio;
+                    cout << "Ingrese el nuevo PRECIO: ";
+                    cin >> precio;
+                    cin.ignore();
+                    producto.precio = precio;
+                    fseek(archivo, sizeof(tProducto) * (id - 1), SEEK_SET);
+                    fwrite(&producto,sizeof(tProducto),1,archivo);
+                    productoModificado();
+                }
+                else if(mod == 3)
+                {
+                    int stock;
+                    cout << "Ingrese el nuevo STOCK: ";
+                    cin >> stock;
+                    cin.ignore();
+                    producto.stock = stock;
+                    fseek(archivo, sizeof(tProducto) * (id - 1), SEEK_SET);
+                    fwrite(&producto,sizeof(tProducto),1,archivo);
+                    productoModificado();
+                }
+            }
+        }
+        else
+        {
+            productoNoExiste();
+        }
+    }
+    else
+    {
+        sinProductos();
     }
     fclose(archivo);
 }
